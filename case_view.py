@@ -2,13 +2,13 @@
 from data import CASE_DATA
 
 
-# Создайте локальную функцию, которая печатает линию-разделитель.
+# Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
     raise NotImplementedError("Команда 2 должна реализовать print_separator в case_view.py")
 
 
-# Создайте локальную функцию, которая ждет нажатия Enter.
+# Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
     raise NotImplementedError("Команда 2 должна реализовать wait_for_enter в case_view.py")

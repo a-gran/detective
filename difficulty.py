@@ -2,7 +2,7 @@
 from data import DIFFICULTY_SETTINGS
 
 
-# Создайте локальную функцию, которая печатает линию-разделитель.
+# Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
     raise NotImplementedError("Команда 1 должна реализовать print_separator в difficulty.py")

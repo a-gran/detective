@@ -2,7 +2,7 @@
 from data import HINTS
 
 
-# Создайте локальную функцию, которая ждет нажатия Enter.
+# Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
     raise NotImplementedError("Команда 2 должна реализовать wait_for_enter в hints.py")
