@@ -20,7 +20,7 @@ wheels/
 .installed.cfg
 *.egg
 AGENTS.md
-
+/teacher_solution
 # Virtual environments
 venv/
 ENV/
