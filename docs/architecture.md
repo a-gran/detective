@@ -24,13 +24,13 @@ intensive_detective/
 ├── main.py
 ├── data.py
 ├── deepseek_client.py
-├── main_menu.py
+├── menu.py
 ├── difficulty.py
 ├── game_state.py
 ├── final.py
-├── case_view.py
-├── suspects_view.py
-├── clues_view.py
+├── case.py
+├── suspects.py
+├── clues.py
 ├── interview.py
 ├── hints.py
 ├── README.md
@@ -57,7 +57,7 @@ intensive_detective/
 
 Команда 1 отвечает за игровой процесс.
 
-- `main_menu.py` - главное меню и правила;
+- `menu.py` - главное меню и правила;
 - `difficulty.py` - выбор сложности;
 - `game_state.py` - состояние игры, меню расследования и история;
 - `final.py` - финальное обвинение.
@@ -66,9 +66,9 @@ intensive_detective/
 
 Команда 2 отвечает за действия расследования.
 
-- `case_view.py` - показ дела;
-- `suspects_view.py` - показ и выбор подозреваемых;
-- `clues_view.py` - показ улик;
+- `case.py` - показ дела;
+- `suspects.py` - показ и выбор подозреваемых;
+- `clues.py` - показ улик;
 - `interview.py` - допрос;
 - `hints.py` - подсказки.
 
@@ -92,4 +92,4 @@ intensive_detective/
 python difficulty.py
 ```
 
-Так ученик проверяет только `difficulty.py` и не зависит от того, готов ли `main_menu.py`.
+Так ученик проверяет только `difficulty.py` и не зависит от того, готов ли `menu.py`.

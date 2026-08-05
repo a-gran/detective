@@ -5,13 +5,13 @@ from data import CLUES
 # Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
-    raise NotImplementedError("Команда 2 должна реализовать print_separator в clues_view.py")
+    raise NotImplementedError("Команда 2 должна реализовать print_separator в clues.py")
 
 
 # Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
-    raise NotImplementedError("Команда 2 должна реализовать wait_for_enter в clues_view.py")
+    raise NotImplementedError("Команда 2 должна реализовать wait_for_enter в clues.py")
 
 
 # Создайте функцию, которая показывает улики.
@@ -22,13 +22,13 @@ def show_clues(game_state):
     # Для каждой улики нужно вывести номер, название и описание.
     # Нужно добавлять название изученной улики в game_state["viewed_clues"].
     # Нужно вызвать wait_for_enter(), чтобы игрок успел прочитать улики.
-    raise NotImplementedError("Команда 2 должна реализовать show_clues в clues_view.py")
+    raise NotImplementedError("Команда 2 должна реализовать show_clues в clues.py")
 
 
 # Проверяем, что файл запущен напрямую.
 if __name__ == "__main__":
     # Печатаем название проверки для ученика.
-    print("Проверка файла clues_view.py")
+    print("Проверка файла clues.py")
     # Создаем тестовое состояние игры.
     test_state = {"viewed_clues": []}
     # Пытаемся показать улики отдельно.

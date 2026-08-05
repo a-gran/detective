@@ -9,13 +9,13 @@ from data import RULES_TEXT
 # Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
-    raise NotImplementedError("Команда 1 должна реализовать print_separator в main_menu.py")
+    raise NotImplementedError("Команда 1 должна реализовать print_separator в menu.py")
 
 
 # Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
-    raise NotImplementedError("Команда 1 должна реализовать wait_for_enter в main_menu.py")
+    raise NotImplementedError("Команда 1 должна реализовать wait_for_enter в menu.py")
 
 
 # Создайте функцию, которая показывает правила игры.
@@ -24,7 +24,7 @@ def show_rules():
     # Нужно вывести разделитель через print_separator().
     # Нужно пройти циклом по RULES_TEXT и напечатать каждое правило.
     # Нужно вызвать wait_for_enter(), чтобы игрок успел прочитать правила.
-    raise NotImplementedError("Команда 1 должна реализовать show_rules в main_menu.py")
+    raise NotImplementedError("Команда 1 должна реализовать show_rules в menu.py")
 
 
 # Создайте функцию, которая показывает главное меню.
@@ -34,13 +34,13 @@ def show_main_menu():
     # Нужно пройти циклом по MAIN_MENU_ITEMS и вывести номер с названием пункта.
     # Нужно получить выбор игрока через input().
     # Нужно вернуть выбор игрока через return.
-    raise NotImplementedError("Команда 1 должна реализовать show_main_menu в main_menu.py")
+    raise NotImplementedError("Команда 1 должна реализовать show_main_menu в menu.py")
 
 
 # Проверяем, что файл запущен напрямую.
 if __name__ == "__main__":
     # Печатаем название проверки для ученика.
-    print("Проверка файла main_menu.py")
+    print("Проверка файла menu.py")
     # Пытаемся проверить функции главного меню.
     try:
         # Показываем правила игры.

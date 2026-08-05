@@ -11,14 +11,14 @@ main.py
 data.py
 deepseek_client.py
 
-main_menu.py
+menu.py
 difficulty.py
 game_state.py
 final.py
 
-case_view.py
-suspects_view.py
-clues_view.py
+case.py
+suspects.py
+clues.py
 interview.py
 hints.py
 
@@ -72,7 +72,7 @@ python data.py
 
 Файлы команды 1:
 
-- `main_menu.py` - главное меню, правила, разделитель, ожидание Enter;
+- `menu.py` - главное меню, правила, разделитель, ожидание Enter;
 - `difficulty.py` - выбор сложности;
 - `game_state.py` - состояние игры, меню расследования, история допросов;
 - `final.py` - финальное обвинение и проверка ответа.
@@ -80,7 +80,7 @@ python data.py
 Проверка файлов команды 1:
 
 ```bash
-python main_menu.py
+python menu.py
 python difficulty.py
 python game_state.py
 python final.py
@@ -92,18 +92,18 @@ python final.py
 
 Файлы команды 2:
 
-- `case_view.py` - показ описания дела;
-- `suspects_view.py` - показ и выбор подозреваемых;
-- `clues_view.py` - показ улик;
+- `case.py` - показ описания дела;
+- `suspects.py` - показ и выбор подозреваемых;
+- `clues.py` - показ улик;
 - `interview.py` - вопросы и допрос;
 - `hints.py` - подсказки.
 
 Проверка файлов команды 2:
 
 ```bash
-python case_view.py
-python suspects_view.py
-python clues_view.py
+python case.py
+python suspects.py
+python clues.py
 python interview.py
 python hints.py
 ```

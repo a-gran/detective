@@ -1,7 +1,7 @@
 # Берем функцию показа главного меню из задания команды 1.
-from main_menu import show_main_menu
+from menu import show_main_menu
 # Берем функцию показа правил из задания команды 1.
-from main_menu import show_rules
+from menu import show_rules
 # Берем функцию выбора сложности из задания команды 1.
 from difficulty import choose_difficulty
 # Берем функцию создания состояния игры из задания команды 1.
@@ -13,11 +13,11 @@ from game_state import show_history
 # Берем функцию финального обвинения из задания команды 1.
 from final import make_accusation
 # Берем функцию показа дела из задания команды 2.
-from case_view import show_case_description
+from case import show_case_description
 # Берем функцию показа подозреваемых из задания команды 2.
-from suspects_view import show_suspects
+from suspects import show_suspects
 # Берем функцию показа улик из задания команды 2.
-from clues_view import show_clues
+from clues import show_clues
 # Берем функцию допроса из задания команды 2.
 from interview import interview_suspect
 # Берем функцию подсказки из задания команды 2.

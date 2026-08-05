@@ -5,13 +5,13 @@ from data import SUSPECTS
 # Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
-    raise NotImplementedError("Команда 2 должна реализовать print_separator в suspects_view.py")
+    raise NotImplementedError("Команда 2 должна реализовать print_separator в suspects.py")
 
 
 # Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
-    raise NotImplementedError("Команда 2 должна реализовать wait_for_enter в suspects_view.py")
+    raise NotImplementedError("Команда 2 должна реализовать wait_for_enter в suspects.py")
 
 
 # Создайте функцию, которая показывает подозреваемых.
@@ -21,7 +21,7 @@ def show_suspects():
     # Нужно пройти циклом по SUSPECTS.
     # Для каждого подозреваемого нужно вывести номер, имя, роль, характер и алиби.
     # Нужно вызвать wait_for_enter(), чтобы игрок успел прочитать список.
-    raise NotImplementedError("Команда 2 должна реализовать show_suspects в suspects_view.py")
+    raise NotImplementedError("Команда 2 должна реализовать show_suspects в suspects.py")
 
 
 # Создайте функцию, которая помогает выбрать подозреваемого.
@@ -32,13 +32,13 @@ def choose_suspect():
     # Нужно превратить номер в индекс списка.
     # Если индекс правильный, нужно вернуть выбранного подозреваемого.
     # Если выбор неправильный, нужно вернуть None.
-    raise NotImplementedError("Команда 2 должна реализовать choose_suspect в suspects_view.py")
+    raise NotImplementedError("Команда 2 должна реализовать choose_suspect в suspects.py")
 
 
 # Проверяем, что файл запущен напрямую.
 if __name__ == "__main__":
     # Печатаем название проверки для ученика.
-    print("Проверка файла suspects_view.py")
+    print("Проверка файла suspects.py")
     # Пытаемся проверить функции этого файла.
     try:
         # Показываем подозреваемых.

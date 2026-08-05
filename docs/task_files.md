@@ -39,7 +39,7 @@
 
 Файлы команды:
 
-- `main_menu.py` - главное меню, правила, разделитель и ожидание Enter;
+- `menu.py` - главное меню, правила, разделитель и ожидание Enter;
 - `difficulty.py` - выбор уровня сложности;
 - `game_state.py` - состояние игрока, меню расследования и история допросов;
 - `final.py` - финальное обвинение и проверка ответа.
@@ -52,9 +52,9 @@
 
 Файлы команды:
 
-- `case_view.py` - показ описания дела;
-- `suspects_view.py` - показ и выбор подозреваемых;
-- `clues_view.py` - показ улик;
+- `case.py` - показ описания дела;
+- `suspects.py` - показ и выбор подозреваемых;
+- `clues.py` - показ улик;
 - `interview.py` - вопросы и допрос;
 - `hints.py` - подсказки.
 
@@ -83,7 +83,7 @@ python data.py
 Для проверки файлов команды 1:
 
 ```bash
-python main_menu.py
+python menu.py
 python difficulty.py
 python game_state.py
 python final.py
@@ -92,9 +92,9 @@ python final.py
 Для проверки файлов команды 2:
 
 ```bash
-python case_view.py
-python suspects_view.py
-python clues_view.py
+python case.py
+python suspects.py
+python clues.py
 python interview.py
 python hints.py
 ```

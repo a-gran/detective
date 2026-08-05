@@ -11,13 +11,13 @@
 - `main.py`;
 - `deepseek_client.py`;
 - `data.py`;
-- `main_menu.py`;
+- `menu.py`;
 - `difficulty.py`;
 - `game_state.py`;
 - `final.py`;
-- `case_view.py`;
-- `suspects_view.py`;
-- `clues_view.py`;
+- `case.py`;
+- `suspects.py`;
+- `clues.py`;
 - `interview.py`;
 - `hints.py`;
 - документацию.
@@ -27,8 +27,8 @@
 Ученики должны:
 
 - заполнить данные в `data.py`;
-- реализовать функции команды 1 в `main_menu.py`, `difficulty.py`, `game_state.py`, `final.py`;
-- реализовать функции команды 2 в `case_view.py`, `suspects_view.py`, `clues_view.py`, `interview.py`, `hints.py`;
+- реализовать функции команды 1 в `menu.py`, `difficulty.py`, `game_state.py`, `final.py`;
+- реализовать функции команды 2 в `case.py`, `suspects.py`, `clues.py`, `interview.py`, `hints.py`;
 - запускать `python main.py` для проверки.
 
 ## Что делает data.py
@@ -50,7 +50,7 @@
 
 Файлы:
 
-- `main_menu.py`;
+- `menu.py`;
 - `difficulty.py`;
 - `game_state.py`;
 - `final.py`.
@@ -71,9 +71,9 @@
 
 Файлы:
 
-- `case_view.py`;
-- `suspects_view.py`;
-- `clues_view.py`;
+- `case.py`;
+- `suspects.py`;
+- `clues.py`;
 - `interview.py`;
 - `hints.py`.
 
@@ -111,13 +111,13 @@ python main.py
 Каждый ученик может проверить свой файл отдельно:
 
 ```bash
-python main_menu.py
+python menu.py
 python difficulty.py
 python game_state.py
 python final.py
-python case_view.py
-python suspects_view.py
-python clues_view.py
+python case.py
+python suspects.py
+python clues.py
 python interview.py
 python hints.py
 ```
