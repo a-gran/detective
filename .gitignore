@@ -20,7 +20,7 @@ wheels/
 .installed.cfg
 *.egg
 AGENTS.md
-/teacher_solution
+
 # Virtual environments
 venv/
 ENV/
@@ -64,5 +64,5 @@ token.json
 client_secret*.json
 
 # block
-oop_version/
-downloads_projects/
+from_students/
+teacher_solution/
