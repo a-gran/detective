@@ -5,22 +5,26 @@ from data import CASE_DATA
 # Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
-    raise NotImplementedError("Команда 2 должна реализовать print_separator в case.py")
+    print("-" * 60)
 
 
 # Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
-    raise NotImplementedError("Команда 2 должна реализовать wait_for_enter в case.py")
+    input("Нажми Enter, чтобы продолжить...")
 
 
 # Создайте функцию, которая показывает описание дела.
 def show_case_description():
     # Нужно вывести название дела из CASE_DATA["title"].
+    print(CASE_DATA["title"])
     # Нужно вывести разделитель через print_separator().
+    print_separator()
     # Нужно вывести описание дела из CASE_DATA["description"].
+    print(CASE_DATA["description"])
     # Нужно вызвать wait_for_enter(), чтобы игрок успел прочитать дело.
-    raise NotImplementedError("Команда 2 должна реализовать show_case_description в case.py")
+    print()
+    wait_for_enter()
 
 
 # Проверяем, что файл запущен напрямую.

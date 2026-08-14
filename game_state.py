@@ -5,49 +5,72 @@ from data import GAME_ACTIONS
 # Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
-    raise NotImplementedError("Команда 1 должна реализовать print_separator в game_state.py")
+    print("-" * 60)
 
 
 # Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
-    raise NotImplementedError("Команда 1 должна реализовать wait_for_enter в game_state.py")
+    input("Нажми Enter, чтобы продолжить...")
 
 
 # Создайте функцию, которая делает новое состояние игры.
 def create_game_state(difficulty):
     # Нужно создать словарь с данными игрока.
+    game_state = {
     # В словаре должны быть ключи "difficulty", "questions_left", "hints_left", "viewed_clues", "question_history".
     # В "difficulty" нужно сохранить difficulty["name"].
+        "difficulty": difficulty["name"],
     # В "questions_left" нужно сохранить difficulty["questions"].
+        "questions_left": difficulty["questions"],
     # В "hints_left" нужно сохранить difficulty["hints"].
+        "hints_left": difficulty["hints"],
     # В "viewed_clues" нужно сохранить пустой список.
+        "viewed_clues": [],
     # В "question_history" нужно сохранить пустой список.
+        "question_history": [],
+    }
     # Нужно вернуть этот словарь через return.
-    raise NotImplementedError("Команда 1 должна реализовать create_game_state в game_state.py")
+    return game_state
 
 
 # Создайте функцию, которая показывает меню расследования.
 def show_game_menu(game_state):
     # Нужно показать выбранную сложность из game_state["difficulty"].
+    print(f"\nРасследование. Сложность: {game_state['difficulty']}")
     # Нужно показать количество вопросов из game_state["questions_left"].
+    print(f"Вопросы: {game_state['questions_left']}")
     # Нужно показать количество подсказок из game_state["hints_left"].
+    print(f"Подсказки: {game_state['hints_left']}")
     # Нужно вывести разделитель через print_separator().
+    print_separator()
     # Нужно пройти циклом по GAME_ACTIONS и показать все действия.
+    for action_key, action_text in GAME_ACTIONS.items():
+        print(f"{action_key}. {action_text}")
     # Нужно получить выбор игрока через input().
+    print()
+    choice = input("Выбери действие: ").strip()
     # Нужно вернуть выбор игрока через return.
-    raise NotImplementedError("Команда 1 должна реализовать show_game_menu в game_state.py")
+    return choice
 
 
 # Создайте функцию, которая показывает историю допросов.
 def show_history(game_state):
     # Нужно вывести заголовок "История допросов".
+    print("\nИстория допросов")
     # Нужно вывести разделитель через print_separator().
+    print_separator()
     # Нужно проверить список game_state["question_history"].
+    if not game_state["question_history"]:
     # Если список пустой, нужно написать, что игрок еще никого не допрашивал.
+        print("Ты еще никого не допрашивал.")
     # Если список не пустой, нужно циклом вывести каждую запись.
+    else:
+        for record in game_state["question_history"]:
+            print(f"- {record}")
     # Нужно вызвать wait_for_enter(), чтобы игрок успел прочитать историю.
-    raise NotImplementedError("Команда 1 должна реализовать show_history в game_state.py")
+    print()
+    wait_for_enter()
 
 
 # Проверяем, что файл запущен напрямую.

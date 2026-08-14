@@ -5,24 +5,32 @@ from data import CLUES
 # Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
-    raise NotImplementedError("Команда 2 должна реализовать print_separator в clues.py")
+    print("-" * 60)
 
 
 # Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
-    raise NotImplementedError("Команда 2 должна реализовать wait_for_enter в clues.py")
+    input("Нажми Enter, чтобы продолжить...")
 
 
 # Создайте функцию, которая показывает улики.
 def show_clues(game_state):
     # Нужно вывести заголовок "Улики".
+    print("Улики")
     # Нужно вывести разделитель через print_separator().
+    print_separator()
     # Нужно пройти циклом по CLUES.
+    for index, clue in enumerate(CLUES, start=1):
     # Для каждой улики нужно вывести номер, название и описание.
+        print(f"{index}. {clue['title']}")
+        print(f"   {clue['description']}")
     # Нужно добавлять название изученной улики в game_state["viewed_clues"].
+        if clue["title"] not in game_state["viewed_clues"]:
+            game_state["viewed_clues"].append(clue["title"])
     # Нужно вызвать wait_for_enter(), чтобы игрок успел прочитать улики.
-    raise NotImplementedError("Команда 2 должна реализовать show_clues в clues.py")
+    print()
+    wait_for_enter()
 
 
 # Проверяем, что файл запущен напрямую.

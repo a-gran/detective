@@ -5,19 +5,28 @@ from data import DIFFICULTY_SETTINGS
 # Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
-    raise NotImplementedError("Команда 1 должна реализовать print_separator в difficulty.py")
+    print("-" * 60)
 
 
 # Создайте функцию, которая просит игрока выбрать сложность.
 def choose_difficulty():
     # Нужно показать заголовок "Выбор сложности".
+    while True:
+        print("\nВыбор сложности")
     # Нужно вывести разделитель через print_separator().
+        print_separator()
     # Нужно пройти циклом по DIFFICULTY_SETTINGS и показать все варианты.
+        for difficulty_key, difficulty_data in DIFFICULTY_SETTINGS.items():
+            print(f"{difficulty_key}. {difficulty_data['name']}: {difficulty_data['description']}")
     # Нужно получить выбор игрока через input().
+        print()
+        choice = input("Выбери сложность: ").strip()
     # Нужно проверить, есть ли такой ключ в DIFFICULTY_SETTINGS.
+        if choice in DIFFICULTY_SETTINGS:
     # Если выбор правильный, нужно вернуть словарь выбранной сложности.
+            return DIFFICULTY_SETTINGS[choice]
     # Если выбор неправильный, нужно попросить игрока попробовать еще раз.
-    raise NotImplementedError("Команда 1 должна реализовать choose_difficulty в difficulty.py")
+        print("Такого варианта нет. Попробуй еще раз.")
 
 
 # Проверяем, что файл запущен напрямую.
