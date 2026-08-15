@@ -1,3 +1,40 @@
+# Берем переменные окружения, чтобы читать API-ключ.
+import os
+# Берем библиотеку для HTTP-запросов к Groq.
+import requests
+
+
+# Создаем функцию, которая отправляет запрос в Groq.
+def ask_groq(prompt):
+    # Берем ключ из переменной окружения.
+    api_key = os.getenv("GROQ_API_KEY")
+    # Проверяем, что ключ задан.
+    if not api_key:
+        # Поднимаем ошибку, чтобы игра переключилась на готовые ответы.
+        raise ValueError("Groq не подключен. Проверь переменную GROQ_API_KEY.")
+    # Отправляем запрос в Groq.
+    response = requests.post(
+        "https://api.groq.com/openai/v1/chat/completions",
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        json={
+            "model": "llama-3.3-70b-versatile",
+            "messages": [
+                {"role": "system", "content": "Ты персонаж детективной игры."},
+                {"role": "user", "content": prompt},
+            ],
+            "temperature": 0.4,
+        },
+        timeout=30,
+    )
+    # Проверяем код ответа от сервера.
+    response.raise_for_status()
+    # Возвращаем текст ответа модели.
+    return response.json()["choices"][0]["message"]["content"]
+
+
 # Создаем функцию, которая собирает учебный промпт для ответа персонажа.
 def build_character_prompt(suspect, question_text, case_data):
     # Возвращаем текст промпта, который позже можно отправить в DeepSeek.
@@ -33,14 +70,19 @@ def build_character_prompt(suspect, question_text, case_data):
     )
 
 
-# Создаем функцию-заглушку для будущего ответа DeepSeek от лица персонажа.
+# Создаем функцию, которая получает ответ персонажа через Groq.
 def get_character_answer(suspect, question_key, question_text, case_data):
-    # Собираем промпт, чтобы показать будущую точку подключения DeepSeek.
+    # Собираем промпт для модели.
     prompt = build_character_prompt(suspect, question_text, case_data)
-    # Получаем готовый ответ из словаря, чтобы игра работала без API.
-    answer = suspect["answers"][question_key]
-    # Возвращаем готовый ответ и промпт для учебного разбора.
-    return answer, prompt
+    # Пробуем получить живой ответ из Groq.
+    try:
+        # Отправляем промпт в Groq и получаем ответ.
+        answer = ask_groq(prompt)
+        # Возвращаем ответ модели и промпт для учебного разбора.
+        return answer, prompt
+    except Exception:
+        # Если Groq не работает, берем готовый ответ из словаря.
+        return suspect["answers"][question_key], prompt
 
 
 # Создаем функцию, которая учебно анализирует финальную версию игрока.
