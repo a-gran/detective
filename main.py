@@ -1,15 +1,9 @@
 # Берем функцию показа главного меню из задания команды 1.
-from menu import show_main_menu
-# Берем функцию показа правил из задания команды 1.
-from menu import show_rules
+from menu import show_main_menu, show_rules
 # Берем функцию выбора сложности из задания команды 1.
 from difficulty import choose_difficulty
 # Берем функцию создания состояния игры из задания команды 1.
-from game_state import create_game_state
-# Берем функцию показа меню расследования из задания команды 1.
-from game_state import show_game_menu
-# Берем функцию показа истории допросов из задания команды 1.
-from game_state import show_history
+from game_state import create_game_state, show_game_menu, show_history
 # Берем функцию финального обвинения из задания команды 1.
 from final import make_accusation
 # Берем функцию показа дела из задания команды 2.
