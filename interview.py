@@ -2,6 +2,7 @@
 from data import CASE_DATA
 # Берем вопросы для допроса из файла данных.
 from data import INTERVIEW_QUESTIONS
+from data import SUSPECTS
 # Берем учебную функцию ответа персонажа из файла DeepSeek-клиента.
 from deepseek_client import get_character_answer
 
@@ -9,130 +10,112 @@ from deepseek_client import get_character_answer
 # Создайте функцию, которая печатает линию-разделитель.
 def print_separator():
     # Нужно вывести в консоль строку из 60 символов "-".
-    print("-"*60)
+    print("-" * 60)
 
 
 # Создайте функцию, которая ждет нажатия Enter.
 def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
-    input("Чтобы продолжить раскрывать дело, нажмите Enter")
+    input("\nНажми Enter, чтобы продолжить...")
 
 
 # Создайте функцию, которая помогает выбрать подозреваемого.
 def choose_suspect():
     # Нужно импортировать SUSPECTS из data.py или использовать готовый список подозреваемых.
     # Нужно показать список подозреваемых с номерами.
-    # Нужно получить выбор игрока через input().
-    # Нужно вернуть выбранного подозреваемого или None.
-    from data import SUSPECTS
-    print("Подозреваемые")
+    print("\nВыберите подозреваемого")
+    # Нужно вывести разделитель через print_separator().
     print_separator()
-    for i, suspect in enumerate(SUSPECTS, 1):
-        print(f"{i}. {suspect['name']}")
-        print(f"   Роль: {suspect['role']}")
-        print(f"   Характер: {suspect['personality']}")
-        print(f"   Алиби: {suspect['alibi']}")
-        print()
+    for index, suspect in enumerate(SUSPECTS, start=1):
+        # Нужно вывести номер, имя и роль подозреваемого.
+        print(f"  {index}. {suspect['name']} - {suspect['role']}")
 
-    answer = input("Выберите номер подозреваемого: ")
-    if not answer.isdigit():
-        print("Ошибка! Введите число.")
+    # Нужно получить выбор игрока через input().
+    # Нужно добавить пустую строку перед полем ввода.
+    print()
+    choice = input("Введите номер подозреваемого: ").strip()
+    # Нужно вернуть выбранного подозреваемого или None.
+    if not choice.isdigit():
+        print("\nОшибка! Введите число.")
         return None
 
-    index = int(answer) - 1
-    if index < 0 or index >= len(SUSPECTS):
-        print("Неверный номер!")
-        return None
-
-    return SUSPECTS[index]
+    index = int(choice) - 1
+    if 0 <= index < len(SUSPECTS):
+        return SUSPECTS[index]
+    print("\nНеверный номер подозреваемого.")
+    return None
 
 
 # Создайте функцию, которая показывает вопросы для допроса.
 def show_interview_questions():
     # Нужно пройти циклом по INTERVIEW_QUESTIONS.
     # Нужно вывести номер и текст каждого вопроса.
-    print("\nДоступные вопросы:")
-    for key, question in INTERVIEW_QUESTIONS.items():
-        print(f"{key}. {question}")
+    # Нужно показать заголовок списка вопросов.
+    print("\nДоступные вопросы")
+    # Нужно вывести разделитель через print_separator().
+    print_separator()
+    for key, text in INTERVIEW_QUESTIONS.items():
+        # Нужно вывести вопрос с отступом, чтобы список было легче читать.
+        print(f"  {key}. {text}")
+    # Нужно добавить пустую строку после списка вопросов.
+    print()
 
 
 # Создайте функцию, которая возвращает текст вопроса по номеру.
 def get_question_text(question_key):
     # Нужно взять вопрос из INTERVIEW_QUESTIONS по ключу question_key.
     # Нужно вернуть текст вопроса через return.
-    if question_key in INTERVIEW_QUESTIONS:
-        return INTERVIEW_QUESTIONS[question_key]
-    else:
-        return "Вопрос не найден"
+    return INTERVIEW_QUESTIONS.get(question_key, "Вопрос не найден.")
 
 
 # Создайте функцию, которая проводит допрос.
 def interview_suspect(game_state):
     # Нужно проверить, остались ли вопросы в game_state["questions_left"].
     # Если вопросов нет, нужно показать сообщение и завершить функцию.
-    # Нужно показать заголовок "Допрос".
-    # Нужно вывести разделитель через print_separator().
-    # Нужно выбрать подозреваемого через choose_suspect().
-    # Если подозреваемый не выбран, нужно показать ошибку и завершить функцию.
-    # Нужно показать вопросы через show_interview_questions().
-    # Нужно получить номер вопроса через input().
-    # Нужно проверить, есть ли такой ответ в suspect["answers"].
-    # Нужно получить текст вопроса через get_question_text().
-    # Нужно получить ответ через get_character_answer().
-    # Нужно уменьшить game_state["questions_left"] на 1.
-    # Нужно добавить запись в game_state["question_history"].
-    # Нужно вывести ответ подозреваемого.
-    # Нужно вызвать wait_for_enter().
-
-    # Проверяем, остались ли вопросы
     if game_state["questions_left"] <= 0:
-        print("У вас закончились вопросы.")
+        print("\nУ вас не осталось вопросов!")
         wait_for_enter()
         return
 
+    # Нужно показать заголовок "Допрос".
     print("\nДопрос")
+    # Нужно вывести разделитель через print_separator().
     print_separator()
-
-    # Выбираем подозреваемого
+    # Нужно выбрать подозреваемого через choose_suspect().
     suspect = choose_suspect()
+    # Если подозреваемый не выбран, нужно показать ошибку и завершить функцию.
     if suspect is None:
-        print("Вы не выбрали подозреваемого")
+        print("\nДопрос отменен.")
         wait_for_enter()
         return
-
-    print(f"\nВы допрашиваете: {suspect['name']}")
-    print_separator()
-
-    # Показываем доступные вопросы
+    # Нужно показать вопросы через show_interview_questions().
     show_interview_questions()
-
-    # Получаем номер вопроса
-    question_key = input("\nВведите номер вопроса: ")
-
-    # Проверяем, есть ли такой вопрос у подозреваемого
+    # Нужно получить номер вопроса через input().
+    question_key = input("Выберите номер вопроса: ").strip()
+    # Нужно проверить, есть ли такой ответ в suspect["answers"].
     if question_key not in suspect["answers"]:
-        print("Такого вопроса нет в списке!")
+        print("\nНа этот вопрос нет ответа.")
         wait_for_enter()
         return
-
-    # Получаем текст вопроса и ответ
+    # Нужно получить текст вопроса через get_question_text().
     question_text = get_question_text(question_key)
-    answer = suspect["answers"][question_key]
 
-    # Уменьшаем количество оставшихся вопросов
+    # Нужно получить ответ через get_character_answer().
+    answer = get_character_answer(suspect, question_key, question_text, CASE_DATA)
+    # Нужно уменьшить game_state["questions_left"] на 1.
     game_state["questions_left"] -= 1
-
-    # Добавляем запись в историю
-    game_state["question_history"].append({
-        "suspect": suspect["name"],
-        "question": question_text,
-        "answer": answer
-    })
-
-    # Выводим ответ
-    print(f"\n{suspect['name']}: {answer}")
-    print(f"Осталось вопросов: {game_state['questions_left']}")
-
+    # Нужно добавить запись в game_state["question_history"].
+    game_state["question_history"].append(f"[{suspect['name']}] Вопрос: {question_text}\nОтвет: {answer}")
+    # Нужно вывести ответ подозреваемого.
+    # Нужно добавить пустую строку перед ответом.
+    print()
+    # Нужно показать, какой подозреваемый отвечает.
+    print(f"{suspect['name']} отвечает")
+    # Нужно вывести разделитель перед ответом.
+    print_separator()
+    # Нужно вывести сам ответ подозреваемого.
+    print(answer)
+    # Нужно вызвать wait_for_enter().
     wait_for_enter()
 
 
@@ -144,12 +127,6 @@ if __name__ == "__main__":
     test_state = {"questions_left": 3, "question_history": []}
     # Пытаемся проверить функции допроса отдельно.
     try:
-        # Показываем вопросы для допроса.
-        show_interview_questions()
-        # Если есть вопрос с номером "1", печатаем его текст.
-        if "1" in INTERVIEW_QUESTIONS:
-            # Печатаем текст первого вопроса.
-            print(get_question_text("1"))
         # Запускаем полный тест допроса.
         interview_suspect(test_state)
         # Печатаем состояние после допроса.
