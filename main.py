@@ -1,3 +1,11 @@
+# Берем функцию load_dotenv из библиотеки dotenv.
+# Она нужна, чтобы прочитать переменные из файла .env.
+from dotenv import load_dotenv
+
+# Загружаем переменные из файла .env.
+# override=True говорит Python заменить старые переменные новыми значениями из .env.
+load_dotenv(override=True)
+
 # Берем функцию показа главного меню из задания команды 1.
 from menu import show_main_menu, show_rules
 # Берем функцию выбора сложности из задания команды 1.
