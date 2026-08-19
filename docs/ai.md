@@ -128,10 +128,10 @@ import requests
 
 
 def ask_groq(prompt):
-    api_key = os.getenv("AI_API_KEY")
+    api_key = os.getenv("GROQ_API_KEY")
 
     if not api_key:
-        return "AI не подключен. Проверь переменную AI_API_KEY."
+        return "AI не подключен. Проверь переменную GROQ_API_KEY."
 
     response = requests.post(
         "https://api.groq.com/openai/v1/chat/completions",
@@ -140,9 +140,9 @@ def ask_groq(prompt):
             "Content-Type": "application/json",
         },
         json={
-            "model": "AI-chat",
+            "model": "openai/gpt-oss-20b",
             "messages": [
-                {"role": "system", "content": "Ты персонаж детективной игры."},
+                {"role": "system", "content": "Ты персонаж детективной игры. Отвечай только на русском языке."},
                 {"role": "user", "content": prompt},
             ],
             "temperature": 0.8,
