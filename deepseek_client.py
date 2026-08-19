@@ -154,6 +154,7 @@ def get_character_answer(suspect, question_key, question_text, case_data):
 # Так финал работает стабильно даже без подключения к Groq.
 def analyze_player_version(player_version, accused_name, case_data):
     # Проверяем, выбрал ли игрок правильного преступника.
+    print(f'Версия детектива: {player_version}')
     # lower() делает строки маленькими буквами, чтобы сравнение было мягче к регистру.
     is_correct = accused_name.lower() == case_data["criminal"].lower()
     # Если игрок выбрал верно, возвращаем дружелюбный комментарий.
