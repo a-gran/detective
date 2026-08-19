@@ -127,14 +127,14 @@ import os
 import requests
 
 
-def ask_AI(prompt):
+def ask_groq(prompt):
     api_key = os.getenv("AI_API_KEY")
 
     if not api_key:
         return "AI не подключен. Проверь переменную AI_API_KEY."
 
     response = requests.post(
-        "https://api.AI.com/chat/completions",
+        "https://api.groq.com/openai/v1/chat/completions",
         headers={
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
@@ -145,9 +145,9 @@ def ask_AI(prompt):
                 {"role": "system", "content": "Ты персонаж детективной игры."},
                 {"role": "user", "content": prompt},
             ],
-            "temperature": 0.4,
+            "temperature": 0.8,
         },
-        timeout=20,
+        timeout=500,
     )
 
     response.raise_for_status()
