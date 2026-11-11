@@ -1,29 +1,38 @@
-# Берем функцию load_dotenv из библиотеки dotenv.
-# Она нужна, чтобы прочитать переменные из файла .env.
-from dotenv import load_dotenv
+# Берем функцию показа дела из задания команды 2.
+from case import show_case_description
 
-# Загружаем переменные из файла .env.
-# override=True говорит Python заменить старые переменные новыми значениями из .env.
-load_dotenv(override=True)
+# Берем функцию показа улик из задания команды 2.
+from clues import show_clues
+
+# Берем функцию выбора сложности из задания команды 1.
+from difficulty import choose_difficulty
+
+# Берем функцию финального обвинения из задания команды 1.
+from final import make_accusation
+
+# Берем функцию подсказки из задания команды 2.
+from hints import show_hint
+
+# Берем функцию допроса из задания команды 2.
+from interview import interview_suspect
 
 # Берем функцию показа главного меню из задания команды 1.
 from menu import show_main_menu, show_rules
-# Берем функцию выбора сложности из задания команды 1.
-from difficulty import choose_difficulty
+
 # Берем функцию создания состояния игры из задания команды 1.
-from game_state import create_game_state, show_game_menu, show_history
-# Берем функцию финального обвинения из задания команды 1.
-from final import make_accusation
-# Берем функцию показа дела из задания команды 2.
-from case import show_case_description
+from state import create_game_state, show_game_menu, show_history
+
 # Берем функцию показа подозреваемых из задания команды 2.
 from suspects import show_suspects
-# Берем функцию показа улик из задания команды 2.
-from clues import show_clues
-# Берем функцию допроса из задания команды 2.
-from interview import interview_suspect
-# Берем функцию подсказки из задания команды 2.
-from hints import show_hint
+
+# Берем общую функцию для красивого вывода заголовков и сообщений.
+from ui_helpers import print_title
+
+# Берем функцию, которая загружает переменные из файла .env.
+from dotenv import load_dotenv
+
+# Загружаем переменные из файла .env, чтобы Python увидел GROQ_API_KEY.
+load_dotenv()
 
 
 # Создаем функцию, которая запускает одну партию.
@@ -77,7 +86,8 @@ def play_game():
         # Обрабатываем неправильный выбор.
         else:
             # Сообщаем игроку, что такого пункта нет.
-            print("Такого пункта нет. Попробуй еще раз.")
+            # Печатаем сообщение об ошибке как отдельный заметный блок.
+            print_title("Такого пункта нет. Попробуй еще раз.")
 
 
 # Создаем главную функцию программы.
@@ -97,13 +107,15 @@ def main():
         # Проверяем выбор выхода.
         elif choice == "3":
             # Прощаемся с игроком.
-            print("До встречи, детектив!")
+            # Печатаем прощание как отдельный красивый блок.
+            print_title("До встречи, детектив!")
             # Выходим из главного цикла.
             break
         # Обрабатываем неправильный выбор.
         else:
             # Сообщаем, что такого пункта нет.
-            print("Такого пункта нет. Попробуй еще раз.")
+            # Печатаем сообщение об ошибке как отдельный заметный блок.
+            print_title("Такого пункта нет. Попробуй еще раз.")
 
 
 # Проверяем, что файл запущен напрямую, а не импортирован.
