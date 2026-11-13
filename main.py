@@ -1,36 +1,25 @@
 # Берем функцию показа дела из задания команды 2.
 from case import show_case_description
-
 # Берем функцию показа улик из задания команды 2.
 from clues import show_clues
-
 # Берем функцию выбора сложности из задания команды 1.
 from difficulty import choose_difficulty
-
 # Берем функцию финального обвинения из задания команды 1.
 from final import make_accusation
-
 # Берем функцию подсказки из задания команды 2.
 from hints import show_hint
-
 # Берем функцию допроса из задания команды 2.
 from interview import interview_suspect
-
 # Берем функцию показа главного меню из задания команды 1.
 from menu import show_main_menu, show_rules
-
 # Берем функцию создания состояния игры из задания команды 1.
 from state import create_game_state, show_game_menu, show_history
-
 # Берем функцию показа подозреваемых из задания команды 2.
 from suspects import show_suspects
-
 # Берем общую функцию для красивого вывода заголовков и сообщений.
 from ui_helpers import print_title
-
 # Берем функцию, которая загружает переменные из файла .env.
 from dotenv import load_dotenv
-
 # Загружаем переменные из файла .env, чтобы Python увидел GROQ_API_KEY.
 load_dotenv()
 

@@ -7,10 +7,6 @@ def wait_for_enter():
     # Нужно вызвать input() с текстом вроде "Нажми Enter, чтобы продолжить...".
     input("Нажми Enter, чтобы продолжить...")
 
-def ask_groq_hint():
-    pass
-
-
 # Создайте функцию, которая показывает подсказку.
 def show_hint(game_state):
     # Нужно проверить, остались ли подсказки в game_state["hints_left"].
