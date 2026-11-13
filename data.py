@@ -41,20 +41,20 @@ RULES_TEXT = [
 DIFFICULTY_SETTINGS = {
     "1": {
         "name": "Лёгкая",
-        "questions": 5,
-        "hints": 2,
+        "questions": 15,
+        "hints": 5,
         "description": "Много вопросов и подсказок. Подходит для первого расследования.",
     },
     "2": {
         "name": "Средняя",
-        "questions": 3,
-        "hints": 1,
+        "questions": 10,
+        "hints": 3,
         "description": "Сбалансированный режим: вопросов и подсказок хватит, но нужно думать.",
     },
     "3": {
         "name": "Сложная",
-        "questions": 2,
-        "hints": 0,
+        "questions": 6,
+        "hints": 1,
         "description": "Мало вопросов и всего одна подсказка. Для настоящих детективов.",
     },
 }

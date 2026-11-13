@@ -7,12 +7,10 @@
 
 Ученики получают файлы в корне проекта:
 
-- `main.py`;
-- `deepseek_client.py`;
 - `data.py`;
 - `menu.py`;
 - `difficulty.py`;
-- `game_state.py`;
+- `state.py`;
 - `final.py`;
 - `case.py`;
 - `suspects.py`;
@@ -26,8 +24,7 @@
 Ученики должны:
 
 - заполнить данные в `data.py`;
-- реализовать функции команды 1 в `menu.py`, `difficulty.py`, `game_state.py`, `final.py`;
-- реализовать функции команды 2 в `case.py`, `suspects.py`, `clues.py`, `interview.py`, `hints.py`;
+- реализовать все функции в файлах `menu.py`, `difficulty.py`, `state.py`, `final.py`, `case.py`, `suspects.py`, `clues.py`, `interview.py`, `hints.py`;
 - запускать `python main.py` для проверки.
 
 ## Что делает data.py
@@ -42,14 +39,13 @@
 
 Например, имя преступника в `CASE_DATA["criminal"]` должно совпадать с именем одного подозреваемого из `SUSPECTS`.
 
-## Команда 1
+## Игровой процесс
 
-Команда 1 отвечает за игровой процесс.
 Файлы:
 
 - `menu.py`;
 - `difficulty.py`;
-- `game_state.py`;
+- `state.py`;
 - `final.py`.
 
 Задачи:
@@ -62,9 +58,8 @@
 - показать историю допросов;
 - сделать финальное обвинение.
 
-## Команда 2
+## Расследование
 
-Команда 2 отвечает за расследование.
 Файлы:
 
 - `case.py`;
@@ -100,13 +95,12 @@ python main.py
 
 ## Независимая проверка
 
-Не нужно ждать, пока другая команда закончит свой файл.
 Каждый ученик может проверить свой файл отдельно:
 
 ```bash
 python menu.py
 python difficulty.py
-python game_state.py
+python state.py
 python final.py
 python case.py
 python suspects.py
